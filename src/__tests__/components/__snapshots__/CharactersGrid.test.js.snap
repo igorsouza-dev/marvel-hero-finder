@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterCard renders a hero card 1`] = `
+<div
+  class="sc-AykKD inqWhw"
+  size="200"
+>
+  <div
+    class="sc-AykKC cMEmEL"
+    size="200"
+  >
+    <img
+      alt="Iron Man"
+      src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
+    />
+    <strong>
+      Iron Man
+    </strong>
+  </div>
+</div>
+`;

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import md5 from 'md5';
 
 import api from 'services/api';
-import CharacterCard from 'components/CharacterCard';
-import { Container } from './styles';
+import CharactersGrid from 'components/CharactersGrid';
+import {
+  Container, Header, Title, SubTitle, SearchBar,
+} from './styles';
 
 
 export default function Main() {
@@ -29,9 +31,13 @@ export default function Main() {
   }, []);
   return (
     <Container>
-      {characters.map((character) => (
-        <CharacterCard key={character.id} character={character} />
-      ))}
+      <Header>
+        <Title>Marvel</Title>
+        <SubTitle>Hero Finder</SubTitle>
+        <SearchBar />
+      </Header>
+
+      <CharactersGrid characters={characters} cardSize={200} />
     </Container>
   );
 }

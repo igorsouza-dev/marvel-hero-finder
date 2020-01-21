@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-function CharacterCard({ character }) {
+function CharacterCard({ character, size }) {
   return (
-    <Container>
-      <img
-        src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-        alt={character.name}
-      />
-      <strong>{character.name}</strong>
+    <Container size={size} url={`${character.thumbnail.path}.${character.thumbnail.extension}`}>
+
+      <div>
+        <strong>{character.name}</strong>
+      </div>
     </Container>
   );
 }
@@ -24,6 +23,11 @@ CharacterCard.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
   }).isRequired,
+  size: PropTypes.number,
+};
+
+CharacterCard.defaultProps = {
+  size: 200,
 };
 
 export default CharacterCard;

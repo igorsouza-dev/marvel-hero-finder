@@ -2,7 +2,8 @@
 
 exports[`CharacterCard renders a hero card 1`] = `
 <div
-  class="sc-AykKC hXUSBE"
+  class="sc-AykKC cMEmEL"
+  size="200"
 >
   <img
     alt="Iron Man"
