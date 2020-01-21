@@ -5,8 +5,10 @@ import { Container } from './styles';
 
 function CharacterCard({ character, size }) {
   return (
-    <Container size={size} url={`${character.thumbnail.path}.${character.thumbnail.extension}`}>
-
+    <Container
+      size={size}
+      url={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
+    >
       <div>
         <strong>{character.name}</strong>
       </div>

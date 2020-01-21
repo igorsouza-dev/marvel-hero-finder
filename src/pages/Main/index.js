@@ -3,10 +3,7 @@ import md5 from 'md5';
 
 import api from 'services/api';
 import CharactersGrid from 'components/CharactersGrid';
-import {
-  Container, Header, Title, SubTitle, SearchBar,
-} from './styles';
-
+import { Container, Header, Title, SubTitle, SearchBar } from './styles';
 
 export default function Main() {
   const [characters, setCharacters] = useState([]);
@@ -16,7 +13,7 @@ export default function Main() {
         const ts = new Date().getTime();
         const apikey = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
         const hash = md5(
-          `${ts}${process.env.REACT_APP_MARVEL_API_KEY}${apikey}`,
+          `${ts}${process.env.REACT_APP_MARVEL_API_KEY}${apikey}`
         );
         const response = await api.get('characters', {
           params: { ts, apikey, hash },
@@ -32,7 +29,7 @@ export default function Main() {
   return (
     <Container>
       <Header>
-        <Title>Marvel</Title>
+        <img src="/marvel.svg" alt="marvel" />
         <SubTitle>Hero Finder</SubTitle>
         <SearchBar />
       </Header>
