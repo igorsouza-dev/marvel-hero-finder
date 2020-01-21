@@ -1,24 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-image: linear-gradient(25deg, #33000c, #67041c, #a20c2a, #e01639);
+  background: radial-gradient(50% 50% at 50% 50%, #B80000 0%, #940000 15.1%, #6C0101 39.58%, #480101 69.27%, #380505 94.79%);
   height: 100%;
+  overflow: auto;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(6, 150px);
-`;
-
-export const CharCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 200px;
-
-  img {
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-  }
+  grid-template-columns: repeat(6, 200px);
+  grid-gap: 10px;
+  padding: 20px;
 `;

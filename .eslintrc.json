@@ -4,7 +4,10 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "jest"],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -16,16 +19,29 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react",
+    "jest"
+  ],
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": ["src"]
+        "paths": [
+          "src"
+        ]
       }
     }
   },
   "rules": {
-    "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".js"] }],
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [
+          ".jsx",
+          ".js"
+        ]
+      }
+    ],
     "import/prefer-default-export": "off",
     "no-plusplus": "off",
     "jest/no-disabled-tests": "warn",

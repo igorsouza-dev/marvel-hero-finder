@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap');
   * {
     margin: 0;
     padding: 0;
@@ -17,7 +18,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
   body, input, button, textarea {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Bowlby One SC', cursive;
     font-size: 14px;
   }
   a {
