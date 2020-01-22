@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useLazyQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import apollo from 'services/apollo';
 
 import CharactersGrid from 'components/CharactersGrid';
 import SearchBar from 'components/SearchBar';
@@ -9,44 +9,50 @@ import {
   Container,
   Header,
   SubTitle,
+  LoadingText,
 } from './styles';
 
-export default function Main() {
-  const [characters, setCharacters] = useState([]);
-
-  async function handleSearch(searchQuery) {
-    const response = await apollo.query({
-      query: gql`
-        {
-          characters(where: { nameStartsWith: "${searchQuery}"}){
-            id,name, thumbnail
-          }
-        }
-      `,
-    });
-    if (response.data) {
-      if (response.data.characters) {
-        setCharacters(
-          response.data.characters.map((character) => {
-            const { id, name, thumbnail } = character;
-            const extension = thumbnail.substring(
-              thumbnail.length,
-              thumbnail.length - 3
-            );
-            const path = thumbnail.substring(0, thumbnail.length - 4);
-
-            return {
-              id,
-              name,
-              thumbnail: {
-                path,
-                extension,
-              },
-            };
-          })
-        );
-      }
+const GET_CHARACTERS = gql`
+  query Characters($name: String!){
+    characters(where: { nameStartsWith: $name }) {
+      id, name, thumbnail
     }
+  }
+`;
+
+export default function Main() {
+  const [getCharacters, { loading, data }] = useLazyQuery(GET_CHARACTERS);
+
+  function search(input) {
+    getCharacters({
+      variables: { name: input },
+    });
+  }
+  function renderResults() {
+    if (loading) return <LoadingText>Loading...</LoadingText>;
+
+    if (data && data.characters) {
+      const characters = data.characters.map((character) => {
+        const { id, name, thumbnail } = character;
+        const extension = thumbnail.substring(
+          thumbnail.length,
+          thumbnail.length - 3,
+        );
+        const path = thumbnail.substring(0, thumbnail.length - 4);
+
+        return {
+          id,
+          name,
+          thumbnail: {
+            path,
+            extension,
+          },
+        };
+      });
+
+      return <CharactersGrid characters={characters} cardSize={200} />;
+    }
+    return null;
   }
 
   return (
@@ -54,10 +60,11 @@ export default function Main() {
       <Header>
         <img src="/marvel.svg" alt="marvel" />
         <SubTitle>Hero Finder</SubTitle>
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={search} />
       </Header>
-
-      <CharactersGrid characters={characters} cardSize={200} />
+      <div>
+        {renderResults()}
+      </div>
     </Container>
   );
 }

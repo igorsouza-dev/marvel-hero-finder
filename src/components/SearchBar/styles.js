@@ -9,11 +9,18 @@ export const Container = styled.div`
 
 export const Button = styled.button`
   border: 0;
-  background: #d6d6d6;
+  background: #B80000;
   border-radius: 0 4px 4px 0;
-  color: #212121;
-  padding: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 8px;
+  width: 100px;
   height: 50px;
+  transition: background 0.5s ease-out;
+  &:hover {
+    background: #810000;
+  }
 `;
 
 export const Input = styled.input`

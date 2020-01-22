@@ -9,14 +9,16 @@ export const Container = styled.div`
     #480101 69.27%,
     #380505 94.79%
   );
+  background-repeat: no-repeat;
   height: 100%;
   overflow: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content:flex-start;
   align-items: center;
   padding: 20px;
+
 `;
 
 export const Header = styled.div`
@@ -30,5 +32,12 @@ export const Header = styled.div`
 
 export const SubTitle = styled.h2`
   color: #fff;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+`;
+
+export const LoadingText = styled.strong`
+  font-size: 36px;
+  color: #fff;
+  align-self: stretch;
+  text-align: center;
 `;

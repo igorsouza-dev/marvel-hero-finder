@@ -19,7 +19,7 @@ export const Container = styled.div`
   flex-shrink: 0;
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 20px #B80000;
   }
   img {
     border-radius: 4px;
