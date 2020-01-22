@@ -65,11 +65,14 @@ function CharacterLoader({ characterId }) {
             <Label>Description</Label>
             <Text>{character.description || 'No description provided.'}</Text>
             <Label>Series</Label>
-            {character.series.map((serie) => (
-              <Text key={serie.name}>
-                {serie.name}
-              </Text>
-            ))}
+            {character.series.length ? (
+              character.series.map((serie) => (
+                <Text key={serie.name}>
+                  {serie.name}
+                </Text>
+              ))
+            ) : <Text>No series found</Text>}
+
           </DescriptionContainer>
         </Section>
         <Trademark />
