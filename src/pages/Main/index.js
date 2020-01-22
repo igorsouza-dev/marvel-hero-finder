@@ -1,37 +1,62 @@
-import React, { useEffect, useState } from 'react';
-import md5 from 'md5';
+import React, { useState } from 'react';
+import { gql } from 'apollo-boost';
+import apollo from 'services/apollo';
 
-import api from 'services/api';
 import CharactersGrid from 'components/CharactersGrid';
-import { Container, Header, Title, SubTitle, SearchBar } from './styles';
+import { Container, Header, SubTitle, SearchBar } from './styles';
 
 export default function Main() {
   const [characters, setCharacters] = useState([]);
-  useEffect(() => {
-    async function getCharacters() {
-      try {
-        const ts = new Date().getTime();
-        const apikey = process.env.REACT_APP_MARVEL_PUBLIC_KEY;
-        const hash = md5(
-          `${ts}${process.env.REACT_APP_MARVEL_API_KEY}${apikey}`
+  const [searchQuery, setSearchQuery] = useState('');
+
+  async function handleSearch() {
+    const response = await apollo.query({
+      query: gql`
+        {
+          characters(where: { nameStartsWith: "${searchQuery}"}){
+            id,name, thumbnail
+          }
+        }
+      `,
+    });
+    if (response.data) {
+      if (response.data.characters) {
+        setCharacters(
+          response.data.characters.map((character) => {
+            const { id, name, thumbnail } = character;
+            const extension = thumbnail.substring(
+              thumbnail.length,
+              thumbnail.length - 3
+            );
+            const path = thumbnail.substring(0, thumbnail.length - 4);
+
+            return {
+              id,
+              name,
+              thumbnail: {
+                path,
+                extension,
+              },
+            };
+          })
         );
-        const response = await api.get('characters', {
-          params: { ts, apikey, hash },
-        });
-        const { results } = response.data.data;
-        setCharacters(results);
-      } catch (e) {
-        console.error(e.message);
       }
     }
-    getCharacters();
-  }, []);
+  }
+
+  function handleInputChange(e) {
+    setSearchQuery(e.target.value);
+  }
+
   return (
     <Container>
       <Header>
         <img src="/marvel.svg" alt="marvel" />
         <SubTitle>Hero Finder</SubTitle>
-        <SearchBar />
+        <SearchBar onChange={handleInputChange} value={searchQuery} />
+        <button type="button" onClick={handleSearch}>
+          Search!
+        </button>
       </Header>
 
       <CharactersGrid characters={characters} cardSize={200} />
