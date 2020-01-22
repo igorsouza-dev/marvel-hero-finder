@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { device, screenSize } from 'styles/variables';
+
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, ${(props) => props.size}px);
   grid-gap: 10px;
-
+  padding: 10px;
   @media only screen and (max-width: ${screenSize.mobileL}) {
     display: flex;
     flex-direction: row;

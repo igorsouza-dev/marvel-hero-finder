@@ -3,13 +3,18 @@ import { gql } from 'apollo-boost';
 import apollo from 'services/apollo';
 
 import CharactersGrid from 'components/CharactersGrid';
-import { Container, Header, SubTitle, SearchBar } from './styles';
+import SearchBar from 'components/SearchBar';
+// prettier-ignore
+import {
+  Container,
+  Header,
+  SubTitle,
+} from './styles';
 
 export default function Main() {
   const [characters, setCharacters] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
 
-  async function handleSearch() {
+  async function handleSearch(searchQuery) {
     const response = await apollo.query({
       query: gql`
         {
@@ -44,19 +49,12 @@ export default function Main() {
     }
   }
 
-  function handleInputChange(e) {
-    setSearchQuery(e.target.value);
-  }
-
   return (
     <Container>
       <Header>
         <img src="/marvel.svg" alt="marvel" />
         <SubTitle>Hero Finder</SubTitle>
-        <SearchBar onChange={handleInputChange} value={searchQuery} />
-        <button type="button" onClick={handleSearch}>
-          Search!
-        </button>
+        <SearchBar onSearch={handleSearch} />
       </Header>
 
       <CharactersGrid characters={characters} cardSize={200} />
