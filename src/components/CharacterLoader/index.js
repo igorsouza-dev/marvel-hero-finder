@@ -37,7 +37,8 @@ function CharacterLoader({ characterId }) {
   if (data && data.characters) {
     const character = data.characters[0];
     const { thumbnail } = character;
-    if (thumbnail) {
+
+    if (typeof thumbnail === 'string') {
       const extension = thumbnail.substring(
         thumbnail.length,
         thumbnail.length - 3,
