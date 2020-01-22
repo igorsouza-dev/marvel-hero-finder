@@ -33,4 +33,8 @@ export const Input = styled.input`
   font-size: 24px;
   font-weight: bold;
   font-family: 'Bowlby One SC', cursive;
+  &::placeholder{
+    font-size: 12px;
+    color: #212121;
+  }
 `;

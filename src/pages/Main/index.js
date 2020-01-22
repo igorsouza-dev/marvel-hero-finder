@@ -8,6 +8,7 @@ import {
   Container,
   Header,
   SubTitle,
+  Divider,
 } from './styles';
 
 export default function Main() {
@@ -21,7 +22,8 @@ export default function Main() {
     <Container>
       <Header>
         <img src="/marvel.svg" alt="marvel" />
-        <SubTitle>Hero Finder</SubTitle>
+        <Divider />
+        <SubTitle>Character Finder</SubTitle>
         <SearchBar onSearch={search} />
       </Header>
 

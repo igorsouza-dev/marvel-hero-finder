@@ -7,9 +7,15 @@ function SearchBar({ onSearch }) {
   function handleInputChange(e) {
     setSearchQuery(e.target.value);
   }
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (searchQuery) {
+      onSearch(searchQuery);
+    }
+  }
   return (
-    <Container onSubmit={() => onSearch(searchQuery)}>
-      <Input value={searchQuery} onChange={handleInputChange} />
+    <Container onSubmit={handleSubmit}>
+      <Input placeholder="Type the name of a character" value={searchQuery} onChange={handleInputChange} />
       <Button type="submit">Search!</Button>
     </Container>
   );

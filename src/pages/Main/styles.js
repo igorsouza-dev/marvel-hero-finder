@@ -42,3 +42,10 @@ export const LoadingText = styled.strong`
   align-self: stretch;
   text-align: center;
 `;
+
+export const Divider = styled.div`
+  margin: 10px;
+  height: 4px;
+  width: 370px;
+  background: #fff;
+`;
