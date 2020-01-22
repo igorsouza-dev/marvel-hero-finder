@@ -17,12 +17,23 @@ export const Section = styled.div`
   padding: 20px;
   height: max-content;
   width: 100%;
+  max-width: 900px;
   border-radius: 4px;
   background: #fff;
   flex-direction: row;
-
+  animation: glowing 1000ms ease-out alternate infinite;
+  @keyframes glowing {
+    0% {
+      box-shadow: 0 0 -10px #b80000;
+    }
+    100% {
+      box-shadow: 0 0 10px #b80000;
+    }
+  }
   @media only screen and (min-width: ${screenSize.mobileS}) and (max-width: ${screenSize.mobileL}) {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 export const Picture = styled.img`
@@ -49,4 +60,21 @@ export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+`;
+
+export const InfoText = styled.h1`
+  color: #fff;
+  text-align: center;
+`;
+export const ErrorText = styled.h2`
+  color: #bcef00;
+  text-align: center;
+  font-weight: bold;
+`;
+export const Content = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
