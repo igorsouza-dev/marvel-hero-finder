@@ -23,11 +23,3 @@ export const Grid = styled.div`
     grid-template-columns: repeat(5, ${(props) => props.size}px);
   }
 `;
-
-export const Trademark = styled.p`
-  margin: 10px;
-  padding: 10px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-`;

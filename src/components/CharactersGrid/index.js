@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import CharacterCard from 'components/CharacterCard';
-import { Grid, Trademark } from './styles';
-
+import Trademark from 'components/Trademark';
+import { Grid } from './styles';
 
 function CharactersGrid({ characters, cardSize }) {
   return (
@@ -13,9 +13,7 @@ function CharactersGrid({ characters, cardSize }) {
           <CharacterCard key={character.id} character={character} size={cardSize} />
         ))}
       </Grid>
-      <Trademark>
-        Data provided by Marvel. © 2020 Marvel
-      </Trademark>
+      <Trademark />
     </>
   );
 }
