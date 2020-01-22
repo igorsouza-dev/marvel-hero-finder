@@ -15,7 +15,7 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content:flex-start;
+  justify-content:center;
   align-items: center;
   padding: 20px;
 
@@ -33,6 +33,7 @@ export const Header = styled.div`
 export const SubTitle = styled.h2`
   color: #fff;
   margin-bottom: 25px;
+  font-family: 'Bowlby One SC', cursive;
 `;
 
 export const LoadingText = styled.strong`

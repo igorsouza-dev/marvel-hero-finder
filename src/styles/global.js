@@ -16,6 +16,17 @@ export default createGlobalStyle`
   }
   body {
     -webkit-font-smoothing: antialiased;
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      #b80000 0%,
+      #940000 15.1%,
+      #6c0101 39.58%,
+      #480101 69.27%,
+      #380505 94.79%
+    );
+    background-repeat: no-repeat;
+    height: 100%;
+    overflow: auto;
   }
   body, input, button, textarea {
     font-family: 'Bowlby One SC', cursive;

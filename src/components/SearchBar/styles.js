@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.form`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -19,7 +19,7 @@ export const Button = styled.button`
   height: 50px;
   transition: background 0.5s ease-out;
   &:hover {
-    background: #810000;
+    background: #710000;
   }
 `;
 

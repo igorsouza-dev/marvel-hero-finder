@@ -8,9 +8,9 @@ function SearchBar({ onSearch }) {
     setSearchQuery(e.target.value);
   }
   return (
-    <Container>
+    <Container onSubmit={() => onSearch(searchQuery)}>
       <Input value={searchQuery} onChange={handleInputChange} />
-      <Button onClick={() => onSearch(searchQuery)}>Search!</Button>
+      <Button type="submit">Search!</Button>
     </Container>
   );
 }
