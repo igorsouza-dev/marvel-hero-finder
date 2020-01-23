@@ -1,17 +1,13 @@
 import React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import CharacterLoader from 'components/CharacterLoader';
-import { TopContainer, Back, Container } from './styles';
+import Page from 'components/Page';
 
 export default function Details() {
-  const history = useHistory();
   const { id } = useParams();
   return (
-    <Container>
-      <TopContainer>
-        <Back onClick={() => history.goBack()}>Go back</Back>
-      </TopContainer>
+    <Page>
       <CharacterLoader characterId={id} />
-    </Container>
+    </Page>
   );
 }

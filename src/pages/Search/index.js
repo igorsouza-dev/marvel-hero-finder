@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import Searcher from 'components/Searcher';
-import { TopContainer, Back, Container } from './styles';
+import Page from 'components/Page';
 
 function useQueryParams() {
   return new URLSearchParams(useLocation().search);
@@ -11,14 +11,10 @@ function useQueryParams() {
 
 export default function Search() {
   const query = useQueryParams();
-  const history = useHistory();
 
   return (
-    <Container>
-      <TopContainer>
-        <Back onClick={() => history.push('/')}>Go back</Back>
-      </TopContainer>
+    <Page>
       <Searcher input={query.get('q')} />
-    </Container>
+    </Page>
   );
 }

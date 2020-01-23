@@ -21,19 +21,10 @@ export const Container = styled.div`
 
 `;
 
-export const Header = styled.div`
-  display: flex;
-  width: 60%;
-  margin-bottom: 10px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
 export const SubTitle = styled.h2`
   color: #fff;
   margin-bottom: 25px;
-  font-family: 'Bowlby One SC', cursive;
 `;
 
 export const LoadingText = styled.strong`

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaSearch } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { Container, Input, Button } from './styles';
 
@@ -16,7 +17,9 @@ function SearchBar({ onSearch }) {
   return (
     <Container onSubmit={handleSubmit}>
       <Input placeholder="Type the name of a character" value={searchQuery} onChange={handleInputChange} />
-      <Button type="submit">Search!</Button>
+      <Button type="submit">
+        <FaSearch size={20} />
+      </Button>
     </Container>
   );
 }

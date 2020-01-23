@@ -8,14 +8,14 @@ export const Container = styled.form`
 `;
 
 export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 0;
   background: #B80000;
   border-radius: 0 4px 4px 0;
   color: #fff;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 8px;
-  width: 100px;
+  width: 70px;
   height: 50px;
   transition: background 0.5s ease-out;
   &:hover {
@@ -32,7 +32,6 @@ export const Input = styled.input`
   padding: 10px;
   font-size: 24px;
   font-weight: bold;
-  font-family: 'Bowlby One SC', cursive;
   &::placeholder{
     font-size: 12px;
     color: #212121;

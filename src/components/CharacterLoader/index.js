@@ -3,8 +3,6 @@ import { gql } from 'apollo-boost';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
 
-import Trademark from 'components/Trademark';
-
 import {
   Container,
   Section,
@@ -59,7 +57,7 @@ function CharacterLoader({ characterId }) {
     if (typeof thumbnail === 'string') {
       const extension = thumbnail.substring(
         thumbnail.length,
-        thumbnail.length - 3
+        thumbnail.length - 3,
       );
       const path = thumbnail.substring(0, thumbnail.length - 4);
       character.thumbnail = {
@@ -93,7 +91,6 @@ function CharacterLoader({ characterId }) {
             )}
           </DescriptionContainer>
         </Section>
-        <Trademark />
       </Container>
     );
   }

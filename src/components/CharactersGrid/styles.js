@@ -6,6 +6,7 @@ export const Grid = styled.div`
   grid-template-columns: repeat(6, ${(props) => props.size}px);
   grid-gap: 10px;
   padding: 10px;
+  justify-content: center;
   @media only screen and (max-width: ${screenSize.mobileL}) {
     display: flex;
     flex-direction: row;

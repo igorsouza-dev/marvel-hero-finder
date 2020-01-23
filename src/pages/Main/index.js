@@ -6,7 +6,6 @@ import SearchBar from 'components/SearchBar';
 // prettier-ignore
 import {
   Container,
-  Header,
   SubTitle,
   Divider,
 } from './styles';
@@ -20,13 +19,10 @@ export default function Main() {
 
   return (
     <Container>
-      <Header>
-        <img src="/marvel.svg" alt="marvel" />
-        <Divider />
-        <SubTitle>Character Finder</SubTitle>
-        <SearchBar onSearch={search} />
-      </Header>
-
+      <img src="/marvel.svg" alt="marvel" />
+      <Divider />
+      <SubTitle>Character Finder</SubTitle>
+      <SearchBar onSearch={search} />
     </Container>
   );
 }
