@@ -12,7 +12,8 @@ const GET_CHARACTERS = gql`
   query Characters($name: String!) {
     characters(where: { nameStartsWith: $name }) {
       id
-      name
+      name,
+      description,
       thumbnail,
       series {
         name
@@ -46,7 +47,7 @@ function Searcher({ input }) {
   if (data && data.characters) {
     const characters = data.characters.map((character) => {
       const {
-        id, name, thumbnail, series,
+        id, name, description, thumbnail, series,
       } = character;
       const extension = thumbnail.substring(
         thumbnail.length,
@@ -57,6 +58,7 @@ function Searcher({ input }) {
       return {
         id,
         name,
+        description,
         thumbnail: {
           path,
           extension,

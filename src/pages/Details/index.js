@@ -11,7 +11,6 @@ export default function Details() {
   return (
     <Page>
       {character ? <CharacterDetails character={character} /> : <CharacterLoader characterId={id} />}
-
     </Page>
   );
 }

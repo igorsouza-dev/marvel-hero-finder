@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import Modal from 'components/Modal';
+import CharacterForm from 'components/CharacterForm';
 import {
   Container,
   Section,
@@ -12,6 +14,7 @@ import {
 
 
 function CharacterDetails({ character }) {
+  const [showModal, setShowModal] = useState(false);
   const { thumbnail } = character;
 
   if (typeof thumbnail === 'string') {
@@ -25,6 +28,9 @@ function CharacterDetails({ character }) {
       extension,
     };
   }
+  function toggleForm() {
+    setShowModal(!showModal);
+  }
   return (
     <Container>
       <Section>
@@ -36,6 +42,7 @@ function CharacterDetails({ character }) {
         )}
 
         <DescriptionContainer>
+          <button type="button" onClick={toggleForm}>Edit</button>
           <Label>Name</Label>
           <Text>{character.name}</Text>
           <Label>Description</Label>
@@ -50,6 +57,11 @@ function CharacterDetails({ character }) {
           )}
         </DescriptionContainer>
       </Section>
+      {showModal && (
+        <Modal onClose={toggleForm}>
+          <CharacterForm character={character} onSubmit={toggleForm} />
+        </Modal>
+      )}
     </Container>
   );
 }
