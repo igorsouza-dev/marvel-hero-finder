@@ -4,21 +4,18 @@ import Trademark from 'components/Trademark';
 import PropTypes from 'prop-types';
 import { Container, Content } from './styles';
 
-
-function Page({ children }) {
+function PageContainer({ children }) {
   return (
     <Container>
       <Header />
-      <Content>
-        {children}
-      </Content>
+      <Content>{children}</Content>
       <Trademark />
     </Container>
   );
 }
 
-Page.propTypes = {
+PageContainer.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default Page;
+export default PageContainer;

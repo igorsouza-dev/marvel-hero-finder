@@ -1,20 +1,26 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import Searcher from 'components/Searcher';
-import Page from 'components/Page';
+import PageContainer from 'components/PageContainer';
+import CharactersGrid from 'components/CharactersGrid';
 
 function useQueryParams() {
   return new URLSearchParams(useLocation().search);
 }
 
 export default function Search() {
+  const characters = useSelector((state) => state.characters);
   const query = useQueryParams();
-
+  const input = query.get('q');
   return (
-    <Page>
-      <Searcher input={query.get('q')} />
-    </Page>
+    <PageContainer>
+      {characters.length ? (
+        <CharactersGrid characters={characters} />
+      ) : (
+        <Searcher input={input} />
+      )}
+    </PageContainer>
   );
 }

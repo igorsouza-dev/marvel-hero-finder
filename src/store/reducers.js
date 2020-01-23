@@ -14,7 +14,10 @@ export default function auth(state = INITIAL_STATE, action) {
       case 'SET_CHARACTER':
         draft.character = { ...draft.character, ...action.payload.character };
         break;
-
+      case 'RESET':
+        draft.characters = [];
+        draft.character = null;
+        break;
       default:
     }
   });

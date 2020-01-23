@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device, screenSize } from 'styles/variables';
+import { screenSize } from 'styles/variables';
 
 export const Container = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const Container = styled.div`
   }
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 20px #B80000;
+    box-shadow: 0px 0px 20px #b80000;
   }
   img {
     border-radius: 4px;

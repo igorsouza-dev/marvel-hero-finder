@@ -4,7 +4,12 @@ export function setCharacters(characters) {
     payload: { characters },
   };
 }
-
+export function reset() {
+  return {
+    type: 'RESET',
+    payload: {},
+  };
+}
 export function setCharacter(character) {
   return {
     type: 'SET_CHARACTER',
