@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { screenSize } from 'styles/variables';
 
 export const Container = styled.div`
   background: radial-gradient(
@@ -20,7 +21,13 @@ export const Container = styled.div`
   padding: 20px;
 
 `;
+export const Logo = styled.img`
+  width: 375px;
 
+  @media only screen and (max-width: ${screenSize.mobileL}) {
+    width: 300px;
+  }
+`;
 
 export const SubTitle = styled.h2`
   color: #fff;
@@ -39,4 +46,8 @@ export const Divider = styled.div`
   height: 4px;
   width: 370px;
   background: #fff;
+
+  @media only screen and (max-width: ${screenSize.mobileL}) {
+    width: 305px;
+  }
 `;

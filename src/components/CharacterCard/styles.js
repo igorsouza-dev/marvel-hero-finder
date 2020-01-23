@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device, screenSize } from 'styles/variables';
 
 export const Container = styled.div`
   display: flex;
@@ -17,6 +18,9 @@ export const Container = styled.div`
   border: solid 2px #363131;
   transition: box-shadow 0.5s ease-out;
   flex-shrink: 0;
+  @media only screen and (max-width: ${screenSize.mobileL}) {
+    margin: 5px;
+  }
   &:hover {
     cursor: pointer;
     box-shadow: 0px 0px 20px #B80000;

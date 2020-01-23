@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { screenSize } from 'styles/variables';
 
 export const Container = styled.div`
   position: absolute;
@@ -34,5 +35,11 @@ export const Content = styled.div`
     &:hover {
       cursor: pointer;
     }
+  }
+  @media only screen and (min-width: ${screenSize.mobileS}) and (max-width: ${screenSize.mobileL}) {
+    width: 100%;
+    margin: 0 25px;
+    height: 570px;
+
   }
 `;

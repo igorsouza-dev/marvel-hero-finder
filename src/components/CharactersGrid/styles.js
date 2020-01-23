@@ -8,6 +8,7 @@ export const Grid = styled.div`
   padding: 10px;
   justify-content: center;
   @media only screen and (max-width: ${screenSize.mobileL}) {
+    margin-top: 25px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
