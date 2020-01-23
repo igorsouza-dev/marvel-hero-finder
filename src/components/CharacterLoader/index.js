@@ -1,15 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
 import { gql } from 'apollo-boost';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
-
+import CharacterDetails from 'components/CharacterDetails';
+import { setCharacter } from 'store/actions';
 import {
-  Container,
-  Section,
-  Picture,
-  Text,
-  Label,
-  DescriptionContainer,
   Content,
   InfoText,
   ErrorText,
@@ -32,7 +29,10 @@ const GET_CHARACTERS = gql`
 `;
 
 function CharacterLoader({ characterId }) {
-  const { loading, data, error } = useQuery(GET_CHARACTERS, {
+  const dispatch = useDispatch();
+  const {
+    loading, data, error,
+  } = useQuery(GET_CHARACTERS, {
     variables: { id: parseInt(characterId, 10) },
   });
 
@@ -65,33 +65,9 @@ function CharacterLoader({ characterId }) {
         extension,
       };
     }
-
+    dispatch(setCharacter(character));
     return (
-      <Container>
-        <Section>
-          {thumbnail && (
-            <Picture
-              src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
-              alt={character.name}
-            />
-          )}
-
-          <DescriptionContainer>
-            <Label>Name</Label>
-            <Text>{character.name}</Text>
-            <Label>Description</Label>
-            <Text>{character.description || 'No description provided.'}</Text>
-            <Label>Series</Label>
-            {character.series.length ? (
-              character.series.map((serie) => (
-                <Text key={serie.name}>{serie.name}</Text>
-              ))
-            ) : (
-              <Text>No series found</Text>
-            )}
-          </DescriptionContainer>
-        </Section>
-      </Container>
+      <CharacterDetails character={character} />
     );
   }
   return null;

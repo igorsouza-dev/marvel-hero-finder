@@ -1,9 +1,11 @@
 import React from 'react';
 import Header from 'components/Header';
 import Trademark from 'components/Trademark';
+import PropTypes from 'prop-types';
 import { Container, Content } from './styles';
 
-export default function Page({ children }) {
+
+function Page({ children }) {
   return (
     <Container>
       <Header />
@@ -14,3 +16,9 @@ export default function Page({ children }) {
     </Container>
   );
 }
+
+Page.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
+export default Page;
