@@ -39,8 +39,8 @@ export const Placeholder = styled.div`
   height: 10px;
 `;
 export const Divider = styled.div`
-  width: 2px;
-  background: rgba(255,255,255,0.6);
+  width: 3px;
+  background: rgba(253,253,253,1);
   height: 40px;
   margin-right: 10px;
 `;

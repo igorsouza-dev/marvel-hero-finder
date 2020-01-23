@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { screenSize } from 'styles/variables';
 
 export const Container = styled.div`
   width: 100%;
@@ -14,5 +15,12 @@ export const Content = styled.div`
   height: 100%;
   overflow:auto;
   padding-top: 70px;
+  display: flex;
+  justify-content: center;
+  @media only screen and (max-width: ${screenSize.mobileL}) {
+    justify-content: center;
+    align-items: center;
+  }
+
 
 `;

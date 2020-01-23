@@ -39,7 +39,7 @@ export const Content = styled.div`
   @media only screen and (min-width: ${screenSize.mobileS}) and (max-width: ${screenSize.mobileL}) {
     width: 100%;
     margin: 0 25px;
-    height: 570px;
+    height: 500px;
 
   }
 `;
