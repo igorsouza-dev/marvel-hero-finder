@@ -16,7 +16,7 @@ export default function Search() {
   const input = query.get('q');
   return (
     <PageContainer>
-      {characters.length ? (
+      {characters ? (
         <CharactersGrid characters={characters} />
       ) : (
         <Searcher input={input} />

@@ -53,12 +53,12 @@ export const Divider = styled.div`
 
 export const Signature = styled.p`
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 0;
   padding: 10px;
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
   color: #fff;
   font-size: 11px;
   font-family: 'Roboto Mono', monospace;

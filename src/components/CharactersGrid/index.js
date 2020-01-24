@@ -2,16 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import CharacterCard from 'components/CharacterCard';
-import { Grid } from './styles';
+import { Grid, Content, InfoText } from './styles';
 
 function CharactersGrid({ characters }) {
   return (
     <>
-      <Grid>
-        {characters.map((character) => (
-          <CharacterCard key={character.id} character={character} />
-        ))}
-      </Grid>
+      {characters.length ? (
+        <Grid>
+          {characters.map((character) => (
+            <CharacterCard key={character.id} character={character} />
+          ))}
+        </Grid>
+      ) : (
+        <Content>
+            <InfoText>No characters found.</InfoText>
+          </Content>
+      )}
+
     </>
   );
 }

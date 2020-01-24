@@ -67,14 +67,8 @@ function Searcher({ input }) {
       };
     });
     dispatch(setCharacters(characters));
-    if (characters.length === 0) {
-      return (
-        <Content>
-          <InfoText>{`No characters found with the name "${input}".`}</InfoText>
-        </Content>
-      );
-    }
-    return <CharactersGrid characters={characters} cardSize={200} />;
+
+    return <CharactersGrid characters={characters} />;
   }
   return null;
 }

@@ -25,3 +25,16 @@ export const Grid = styled.div`
     grid-template-columns: repeat(5, 200px);
   }
 `;
+
+export const InfoText = styled.h2`
+  color: #fff;
+  text-align: center;
+`;
+
+export const Content = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
