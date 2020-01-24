@@ -16,10 +16,9 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   padding: 20px;
-
 `;
 export const Logo = styled.img`
   width: 375px;
@@ -49,5 +48,24 @@ export const Divider = styled.div`
 
   @media only screen and (max-width: ${screenSize.mobileL}) {
     width: 305px;
+  }
+`;
+
+export const Signature = styled.p`
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 11px;
+  a {
+    margin-left: 5px;
+    border-radius: 6px;
+    text-decoration: underline;
+    &:visited {
+      color: #fff;
+    }
+    &:active {
+      color: #fff;
+    }
   }
 `;

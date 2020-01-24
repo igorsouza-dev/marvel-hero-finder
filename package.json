@@ -34,8 +34,9 @@
       "^~/(.*)": "<rootDir>/src/$1"
     },
     "collectCoverageFrom": [
-      "!src/index.js",
-      "!src/services/api.js"
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
     ]
   },
   "eslintConfig": {
