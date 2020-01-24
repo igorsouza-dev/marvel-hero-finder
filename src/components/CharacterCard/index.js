@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { setCharacter } from 'store/actions';
 import { Container } from './styles';
 
-function CharacterCard({ character, size }) {
+function CharacterCard({ character }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -17,7 +17,6 @@ function CharacterCard({ character, size }) {
 
   return (
     <Container
-      size={size}
       url={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
       onClick={() => showDetails(character)}
     >
@@ -37,11 +36,7 @@ CharacterCard.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
   }).isRequired,
-  size: PropTypes.number,
 };
 
-CharacterCard.defaultProps = {
-  size: 200,
-};
 
 export default CharacterCard;

@@ -53,19 +53,33 @@ export const Divider = styled.div`
 
 export const Signature = styled.p`
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
   color: #fff;
   font-size: 11px;
+  font-family: 'Roboto Mono', monospace;
   a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
     margin-left: 5px;
-    border-radius: 6px;
-    text-decoration: underline;
     &:visited {
       color: #fff;
     }
     &:active {
       color: #fff;
+    }
+
+    img {
+      margin-left: 3px;
+      width: 28px;
+      height: 28px;
     }
   }
 `;

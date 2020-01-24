@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  width: ${(props) => props.size}px;
+  width: 200px;
   height: 300px;
 
   background-image: url(${(props) => props.url});

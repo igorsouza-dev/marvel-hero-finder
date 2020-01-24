@@ -6,7 +6,9 @@ import SearchBar from 'components/SearchBar';
 
 // prettier-ignore
 import { reset } from 'store/actions';
-import { Container, SubTitle, Divider, Logo, Signature } from './styles';
+import {
+ Container, SubTitle, Divider, Logo, Signature 
+} from './styles';
 
 export default function Main() {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ export default function Main() {
         Developed by
         <a href="https://github.com/igorsouza-dev/marvel-hero-finder">
           Igor Souza
+          <img src="github.png" alt="" />
         </a>
       </Signature>
     </Container>

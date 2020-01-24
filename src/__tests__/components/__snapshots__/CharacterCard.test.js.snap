@@ -2,15 +2,12 @@
 
 exports[`CharacterCard renders a hero card 1`] = `
 <div
-  class="sc-AykKC cMEmEL"
-  size="200"
+  class="sc-bdVaJa dKPgmu"
 >
-  <img
-    alt="Iron Man"
-    src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
-  />
-  <strong>
-    Iron Man
-  </strong>
+  <div>
+    <strong>
+      Iron Man
+    </strong>
+  </div>
 </div>
 `;

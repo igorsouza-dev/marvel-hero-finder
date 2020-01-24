@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import CharacterCard from 'components/CharacterCard';
 import { Grid } from './styles';
 
-function CharactersGrid({ characters, cardSize }) {
+function CharactersGrid({ characters }) {
   return (
     <>
-      <Grid size={cardSize}>
+      <Grid>
         {characters.map((character) => (
-          <CharacterCard key={character.id} character={character} size={cardSize} />
+          <CharacterCard key={character.id} character={character} />
         ))}
       </Grid>
     </>
@@ -18,11 +18,7 @@ function CharactersGrid({ characters, cardSize }) {
 
 CharactersGrid.propTypes = {
   characters: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  cardSize: PropTypes.number,
 };
 
-CharactersGrid.defaultProps = {
-  cardSize: 200,
-};
 
 export default CharactersGrid;

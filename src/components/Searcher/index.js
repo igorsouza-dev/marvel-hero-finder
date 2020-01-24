@@ -46,10 +46,12 @@ function Searcher({ input }) {
 
   if (data && data.characters) {
     const characters = data.characters.map((character) => {
-      const { id, name, description, thumbnail, series } = character;
+      const {
+        id, name, description, thumbnail, series,
+      } = character;
       const extension = thumbnail.substring(
         thumbnail.length,
-        thumbnail.length - 3
+        thumbnail.length - 3,
       );
       const path = thumbnail.substring(0, thumbnail.length - 4);
 

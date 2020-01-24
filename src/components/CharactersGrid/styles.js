@@ -3,7 +3,7 @@ import { device, screenSize } from 'styles/variables';
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, ${(props) => props.size}px);
+  grid-template-columns: repeat(6, 200px);
   grid-gap: 10px;
   padding: 10px;
   justify-content: center;
@@ -16,12 +16,12 @@ export const Grid = styled.div`
     overflow-x: scroll;
   }
   @media only screen and (${device.mobileL}) {
-    grid-template-columns: repeat(2, ${(props) => props.size}px);
+    grid-template-columns: repeat(2, 200px);
   }
   @media only screen and (${device.tablet}) {
-    grid-template-columns: repeat(3, ${(props) => props.size}px);
+    grid-template-columns: repeat(3, 200px);
   }
   @media only screen and (${device.laptop}) {
-    grid-template-columns: repeat(5, ${(props) => props.size}px);
+    grid-template-columns: repeat(5, 200px);
   }
 `;
