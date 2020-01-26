@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Marvel Character Finder
 
-## Available Scripts
+<div align="center">
+  <img src="demo.gif" />
+</div>
 
-In the project directory, you can run:
+## Overview
 
-### `yarn start`
+This is a React App that allows the user to search his favorite Marvel characters using the data available from the [Marvel API](https://developer.marvel.com/documentation/getting_started). This app does'nt use directly the Marvel API, it uses the MarvelQL library, which is a GraphQL wrapper for the REST API. In order to consume this GraphQL data, I'm using the Apollo Client.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The app also features an editing page but it doesn't send data to the Marvel API, the changes made within the app are only locally, they are stored in a Redux store.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Setting up
 
-### `yarn test`
+### Requirements
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Node.js](https://nodejs.org/en/download/)
+- [Npm](https://www.npmjs.com/get-npm)
+- [Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable) - This is optional but in this readme I'll be using it on some CLI commands, you can use npm if you want.
 
-### `yarn build`
+### Dependencies
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [React.js](https://reactjs.org/) - JavaScript library for building user interfaces
+- [MarvelQL](https://github.com/Novvum/MarvelQL) - An open source GraphQL API that wraps the Marvel REST API
+- [Apollo Client](https://www.apollographql.com/docs/react/) - A fully-featured caching GraphQL client
+- [Styled Components](https://styled-components.com/) - Library that lets you write actual CSS inside JavaScript
+- [Redux](https://redux.js.org/) - Predictable state container for JavaScript apps.
+- [React Redux](https://react-redux.js.org/) - Official React binding for Redux.
+- [React Icons](https://react-icons.netlify.com/) - Icons library
+- [React Router Dom](https://reacttraining.com/react-router/web/guides/quick-start) - DOM bindings for React Router.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Dev Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Eslint](https://eslint.org) - Ecmascript linter
+- [Prettier](https://prettier.io) - Code formatter
+- [React Testing library](https://testing-library.com/docs/react-testing-library/intro) - Light-weight solution for testing React components
 
-### `yarn eject`
+## Installing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+All you need to do is run `yarn` at the root of the project in order to install the dependencies.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Run the command `yarn start` for a developer environment or `yarn build` to generate the production build.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This is a open-sourced software licensed under the [MIT license](LICENSE.md).
