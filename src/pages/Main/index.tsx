@@ -3,17 +3,17 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import SearchBar from 'components/SearchBar';
+import { reset } from 'store/actions';
 
 // prettier-ignore
-import { reset } from 'store/actions';
 import {
- Container, SubTitle, Divider, Logo, Signature 
+  Container, SubTitle, Divider, Logo, Signature
 } from './styles';
 
-export default function Main() {
+const Main: React.FC = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  function search(input) {
+  function search(input: string) {
     history.push(`/search?q=${input}`);
     dispatch(reset());
   }
@@ -33,4 +33,6 @@ export default function Main() {
       </Signature>
     </Container>
   );
-}
+};
+
+export default Main;
