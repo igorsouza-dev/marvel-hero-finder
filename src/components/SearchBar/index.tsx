@@ -3,12 +3,16 @@ import { FaSearch } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { Container, Input, Button } from './styles';
 
-function SearchBar({ onSearch }) {
+interface SearchBarProps {
+  onSearch(searchQuery: string): void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  function handleInputChange(e) {
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchQuery(e.target.value);
   }
-  function handleSubmit(e) {
+  function handleSubmit(e: React.ChangeEvent<HTMLElement>) {
     e.preventDefault();
     if (searchQuery) {
       onSearch(searchQuery);
@@ -16,13 +20,18 @@ function SearchBar({ onSearch }) {
   }
   return (
     <Container onSubmit={handleSubmit}>
-      <Input placeholder="Type the name of a character" value={searchQuery} onChange={handleInputChange} />
+      <Input
+        placeholder="Type the name of a character"
+        value={searchQuery}
+        onChange={handleInputChange}
+      />
       <Button type="submit">
         <FaSearch size={20} />
       </Button>
     </Container>
   );
-}
+};
+
 SearchBar.propTypes = {
   onSearch: PropTypes.func.isRequired,
 };

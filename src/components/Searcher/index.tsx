@@ -3,9 +3,9 @@ import { gql } from 'apollo-boost';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks';
-
 import CharactersGrid from 'components/CharactersGrid';
 import { setCharacters } from 'store/actions';
+import Character from 'types/Character';
 import { InfoText, ErrorText, Content } from './styles';
 
 const GET_CHARACTERS = gql`
@@ -22,7 +22,11 @@ const GET_CHARACTERS = gql`
   }
 `;
 
-function Searcher({ input }) {
+interface SearcherProps {
+  input: string;
+}
+
+const Searcher: React.FC<SearcherProps> = ({ input }) => {
   const dispatch = useDispatch();
   const { loading, data, error } = useQuery(GET_CHARACTERS, {
     variables: { name: input },
@@ -45,13 +49,11 @@ function Searcher({ input }) {
   }
 
   if (data && data.characters) {
-    const characters = data.characters.map((character) => {
-      const {
-        id, name, description, thumbnail, series,
-      } = character;
+    const characters = data.characters.map((character: Character) => {
+      const { id, name, description, thumbnail, series } = character;
       const extension = thumbnail.substring(
         thumbnail.length,
-        thumbnail.length - 3,
+        thumbnail.length - 3
       );
       const path = thumbnail.substring(0, thumbnail.length - 4);
 
@@ -59,10 +61,7 @@ function Searcher({ input }) {
         id,
         name,
         description,
-        thumbnail: {
-          path,
-          extension,
-        },
+        thumbnail: `${path}/portrait_uncanny.${extension}`,
         series,
       };
     });
@@ -71,7 +70,7 @@ function Searcher({ input }) {
     return <CharactersGrid characters={characters} />;
   }
   return null;
-}
+};
 
 Searcher.propTypes = {
   input: PropTypes.string.isRequired,

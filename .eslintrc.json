@@ -1,17 +1,27 @@
 {
   "env": {
     "browser": true,
-    "es6": true,
-    "jest": true
+    "es6": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb"
-  ],
+  "extends": ["plugin:react/recommended", "airbnb"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    }
+  },
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -19,36 +29,25 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "jest"
-  ],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": [
-          "src"
-        ]
-      }
-    }
-  },
+  "plugins": ["react", "@typescript-eslint", "import"],
   "rules": {
+    "import/no-unresolved": "error",
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [
-          ".jsx",
-          ".js"
-        ]
+        "extensions": [".jsx", ".js", ".tsx", ".ts"]
       }
     ],
     "import/prefer-default-export": "off",
-    "no-plusplus": "off",
-    "jest/no-disabled-tests": "warn",
-    "jest/no-focused-tests": "error",
-    "jest/no-identical-title": "error",
-    "jest/prefer-to-have-length": "warn",
-    "jest/valid-expect": "error",
-    "no-param-reassign": "off"
+    "comma-dangle": [
+      "error",
+      {
+        "functions": "never",
+        "objects": "only-multiline",
+        "arrays": "only-multiline",
+        "imports": "only-multiline",
+        "exports": "only-multiline"
+      }
+    ]
   }
 }

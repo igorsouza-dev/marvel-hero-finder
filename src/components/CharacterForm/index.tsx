@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { setCharacter, setCharacters } from 'store/actions';
+import Character from 'types/Character';
 import { Form } from './styles';
 
-function CharacterForm({ character, onSubmit }) {
+interface CharacterFormProps {
+  character: Character;
+  onSubmit(): void;
+}
+interface RootState {
+  characters: Character[];
+}
+const CharacterForm: React.FC<CharacterFormProps> = ({
+  character,
+  onSubmit,
+}) => {
   const dispatch = useDispatch();
-  const characters = useSelector((state) => state.characters);
+  const characters = useSelector((state: RootState) => state.characters);
 
   const [name, setName] = useState(character.name);
-  const [description, setDescription] = useState(character.description);
+  const [description, setDescription] = useState(character.description || '');
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const updatedCharacter = { ...character, name, description };
     dispatch(setCharacter(updatedCharacter));
@@ -35,15 +45,14 @@ function CharacterForm({ character, onSubmit }) {
       <button type="submit">Save</button>
     </Form>
   );
-}
+};
 CharacterForm.propTypes = {
   character: PropTypes.shape({
-    name: PropTypes.string,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     description: PropTypes.string,
+    thumbnail: PropTypes.string.isRequired,
   }).isRequired,
-  onSubmit: PropTypes.func,
-};
-CharacterForm.defaultProps = {
-  onSubmit: () => {},
+  onSubmit: PropTypes.func.isRequired,
 };
 export default CharacterForm;
