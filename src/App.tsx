@@ -11,15 +11,15 @@ import apollo from 'services/apollo';
 import history from './services/history';
 import Routes from './routes';
 
-export default function App() {
-  return (
-    <ApolloProvider client={apollo}>
-      <Provider store={store}>
-        <Router history={history}>
-          <GlobalStyle />
-          <Routes />
-        </Router>
-      </Provider>
-    </ApolloProvider>
-  );
-}
+const App: React.FC = () => (
+  <ApolloProvider client={apollo}>
+    <Provider store={store}>
+      <Router history={history}>
+        <GlobalStyle />
+        <Routes />
+      </Router>
+    </Provider>
+  </ApolloProvider>
+);
+
+export default App;

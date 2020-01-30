@@ -2,10 +2,15 @@ import React from 'react';
 import { FaAngleLeft } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import {
-  Container, Logo, LogoContainer, Back, Divider, Placeholder,
+  Container,
+  Logo,
+  LogoContainer,
+  Back,
+  Divider,
+  Placeholder,
 } from './styles';
 
-export default function Header() {
+const Header: React.FC = () => {
   const history = useHistory();
   return (
     <Container>
@@ -20,4 +25,5 @@ export default function Header() {
       <Placeholder />
     </Container>
   );
-}
+};
+export default Header;

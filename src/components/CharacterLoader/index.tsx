@@ -6,11 +6,7 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
 import CharacterDetails from 'components/CharacterDetails';
 import { setCharacter } from 'store/actions';
-import {
-  Content,
-  InfoText,
-  ErrorText,
-} from './styles';
+import { Content, InfoText, ErrorText } from './styles';
 
 const GET_CHARACTERS = gql`
   query Characters($id: Int!) {
@@ -27,12 +23,13 @@ const GET_CHARACTERS = gql`
     }
   }
 `;
+interface CharacterLoaderProps {
+  characterId: string;
+}
 
-function CharacterLoader({ characterId }) {
+const CharacterLoader: React.FC<CharacterLoaderProps> = ({ characterId }) => {
   const dispatch = useDispatch();
-  const {
-    loading, data, error,
-  } = useQuery(GET_CHARACTERS, {
+  const { loading, data, error } = useQuery(GET_CHARACTERS, {
     variables: { id: parseInt(characterId, 10) },
   });
 
@@ -57,21 +54,16 @@ function CharacterLoader({ characterId }) {
     if (typeof thumbnail === 'string') {
       const extension = thumbnail.substring(
         thumbnail.length,
-        thumbnail.length - 3,
+        thumbnail.length - 3
       );
       const path = thumbnail.substring(0, thumbnail.length - 4);
-      character.thumbnail = {
-        path,
-        extension,
-      };
+      character.thumbnail = `${path}/portrait_uncanny.${extension}`;
     }
     dispatch(setCharacter(character));
-    return (
-      <CharacterDetails character={character} />
-    );
+    return <CharacterDetails character={character} />;
   }
   return null;
-}
+};
 
 CharacterLoader.propTypes = {
   characterId: PropTypes.string.isRequired,

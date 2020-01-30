@@ -5,13 +5,16 @@ import { useLocation } from 'react-router-dom';
 import Searcher from 'components/Searcher';
 import PageContainer from 'components/PageContainer';
 import CharactersGrid from 'components/CharactersGrid';
+import Character from 'types/Character';
 
 function useQueryParams() {
   return new URLSearchParams(useLocation().search);
 }
-
-export default function Search() {
-  const characters = useSelector((state) => state.characters);
+interface RootState {
+  characters: Character[];
+}
+const Search: React.FC = () => {
+  const characters = useSelector((state: RootState) => state.characters);
   const query = useQueryParams();
   const input = query.get('q');
   return (
@@ -19,8 +22,10 @@ export default function Search() {
       {characters ? (
         <CharactersGrid characters={characters} />
       ) : (
-        <Searcher input={input} />
+        <Searcher input={input || ''} />
       )}
     </PageContainer>
   );
-}
+};
+
+export default Search;
